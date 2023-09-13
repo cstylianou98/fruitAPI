@@ -45,6 +45,7 @@
 // FRUIT API
 
 require('dotenv').config()
+const cors = require('cors')
 const fruits = require("./fruits.json")
 const express = require("express")
 const app = express()
@@ -55,6 +56,7 @@ const port = process.env.PORT
 //     next() //without this, webpage runs forever.
 // })
 
+app.use(cors) //to avoid cors error
 app.use(express.json())
 
 app.get("/", (req,res)=> {
